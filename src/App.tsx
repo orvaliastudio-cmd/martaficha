@@ -253,14 +253,14 @@ export default function App() {
         <div ref={printRef} className="print-container mx-auto">
           
           {/* PAGE 1: CLIENTE & NUMEROLOGIA */}
-          <div className="print-page-1 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral">
-            <div className="p-12 md:p-16">
+          <div className="print-page-1 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral flex flex-col">
+            <div className="p-8 md:p-16 flex-1 flex flex-col justify-between">
               {/* Header inside print */}
-              <div className="border-b border-rose-neutral pb-12 mb-12 flex flex-col items-center">
+              <div className="border-b border-rose-neutral pb-8 mb-8 flex flex-col items-center">
                 <img 
                   src="https://i.ibb.co/3mVPmrm8/marta-perfil-fundo-transparente.png" 
                   alt="Marta Banner" 
-                  className="w-full max-w-xl h-auto object-contain mb-8"
+                  className="w-full max-w-xl h-auto object-contain mb-6"
                   referrerPolicy="no-referrer"
                 />
                 <div className="flex justify-between w-full items-end">
@@ -281,13 +281,13 @@ export default function App() {
               </div>
 
               {/* Section: Cliente */}
-              <div className="mb-16 secao-form">
-                <div className="flex items-center gap-4 mb-8">
+              <div className="mb-10 secao-form">
+                <div className="flex items-center gap-4 mb-6">
                   <span className="text-rose-gold/40 font-serif italic text-2xl">01</span>
                   <h3 className="text-xl font-serif font-medium text-brand-dark">Informações do Cliente</h3>
                   <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark ml-1">Nome Completo (Nome de Batismo)</label>
                     <input
@@ -311,13 +311,13 @@ export default function App() {
               </div>
 
               {/* Section: Numerologia */}
-              <div className="mb-16 secao-form">
-                <div className="flex items-center gap-4 mb-8">
+              <div className="mb-10 secao-form">
+                <div className="flex items-center gap-4 mb-6">
                   <span className="text-rose-gold/40 font-serif italic text-2xl">02</span>
                   <h3 className="text-xl font-serif font-medium text-brand-dark">Mapa Numerológico</h3>
                   <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     { label: "Alma", field: "alma", color: "border-rose-gold/20", focus: "focus:border-rose-gold" },
                     { label: "Personalidade", field: "personalidade", color: "border-rose-gold/20", focus: "focus:border-rose-gold" },
@@ -339,29 +339,29 @@ export default function App() {
 
               {/* Section: Leitura */}
               <div className="secao-form">
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-4 mb-6">
                   <span className="text-rose-gold/40 font-serif italic text-2xl">03</span>
                   <h3 className="text-xl font-serif font-medium text-brand-dark">Leitura & Ciclos</h3>
                   <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                  <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
                     <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark ml-1">Lição de Vida</label>
                     <textarea
                       rows={4}
                       value={formData.leitura.licaoDeVida}
                       onChange={(e) => updateField('leitura', 'licaoDeVida', e.target.value)}
-                      className="w-full bg-rose-gold-pale/20 border border-rose-neutral rounded-2xl p-5 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark leading-relaxed resize-none shadow-inner focus:shadow-md"
+                      className="w-full bg-rose-gold-pale/20 border border-rose-neutral rounded-2xl p-4 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark leading-relaxed resize-none shadow-inner focus:shadow-md"
                       placeholder="Descreva os principais aprendizados..."
                     />
                   </div>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark ml-1">Ano Pessoal</label>
                     <textarea
                       rows={4}
                       value={formData.leitura.anoPessoal}
                       onChange={(e) => updateField('leitura', 'anoPessoal', e.target.value)}
-                      className="w-full bg-rose-gold-pale/20 border border-rose-neutral rounded-2xl p-5 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark leading-relaxed resize-none shadow-inner focus:shadow-md"
+                      className="w-full bg-rose-gold-pale/20 border border-rose-neutral rounded-2xl p-4 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark leading-relaxed resize-none shadow-inner focus:shadow-md"
                       placeholder="Tendências para o ciclo atual..."
                     />
                   </div>
@@ -371,11 +371,11 @@ export default function App() {
           </div>
 
           {/* PAGE 2: PLANOS & KARMA/DARMA */}
-          <div className="print-page-2 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral">
-            <div className="p-12 md:p-16">
+          <div className="print-page-2 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral flex flex-col">
+            <div className="p-8 md:p-16 flex-1 flex flex-col justify-between">
               {/* Section: Planos de Consciência */}
-              <div className="mb-20 secao-form">
-                <div className="flex items-center gap-4 mb-10">
+              <div className="mb-12 secao-form">
+                <div className="flex items-center gap-4 mb-8">
                   <span className="text-rose-gold/40 font-serif italic text-2xl">04</span>
                   <h3 className="text-xl font-serif font-medium text-brand-dark">Planos de Consciência</h3>
                   <div className="flex-1 h-px bg-rose-neutral"></div>
@@ -405,14 +405,14 @@ export default function App() {
               </div>
 
               {/* Section: Karma e Darma */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 secao-form">
-                <div className="relative">
-                  <div className="flex items-center gap-4 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 secao-form flex-1">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-4 mb-6">
                     <span className="text-rose-gold/40 font-serif italic text-2xl">05</span>
                     <h3 className="text-xl font-serif font-medium text-brand-dark">Karma</h3>
                     <div className="flex-1 h-px bg-rose-neutral"></div>
                   </div>
-                  <div className="bg-rose-gold-pale/20 border border-rose-neutral rounded-[2rem] p-8 min-h-[300px] relative overflow-hidden transition-all focus-within:bg-white focus-within:border-rose-gold/30 focus-within:shadow-lg">
+                  <div className="flex-1 bg-rose-gold-pale/20 border border-rose-neutral rounded-[2rem] p-8 relative overflow-hidden transition-all focus-within:bg-white focus-within:border-rose-gold/30 focus-within:shadow-lg min-h-[350px]">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-rose-gold/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                     <textarea
                       className="w-full h-full bg-transparent border-none focus:ring-0 text-brand-dark leading-relaxed resize-none outline-none"
@@ -423,13 +423,13 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="relative">
-                  <div className="flex items-center gap-4 mb-8">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-4 mb-6">
                     <span className="text-rose-gold/40 font-serif italic text-2xl">06</span>
                     <h3 className="text-xl font-serif font-medium text-brand-dark">Darma</h3>
                     <div className="flex-1 h-px bg-rose-neutral"></div>
                   </div>
-                  <div className="bg-rose-gold-pale/20 border border-rose-neutral rounded-[2rem] p-8 min-h-[300px] relative overflow-hidden transition-all focus-within:bg-white focus-within:border-rose-gold/30 focus-within:shadow-lg">
+                  <div className="flex-1 bg-rose-gold-pale/20 border border-rose-neutral rounded-[2rem] p-8 relative overflow-hidden transition-all focus-within:bg-white focus-within:border-rose-gold/30 focus-within:shadow-lg min-h-[350px]">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-rose-gold/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                     <textarea
                       className="w-full h-full bg-transparent border-none focus:ring-0 text-brand-dark leading-relaxed resize-none outline-none"
@@ -444,19 +444,19 @@ export default function App() {
           </div>
 
           {/* PAGE 3: PINÁCULOS */}
-          <div className="print-page-3 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral">
-            <div className="p-12 md:p-16">
-              <div className="flex items-center gap-4 mb-12">
+          <div className="print-page-3 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral flex flex-col">
+            <div className="p-8 md:p-16 flex-1 flex flex-col justify-between">
+              <div className="flex items-center gap-4 mb-8">
                 <span className="text-rose-gold/40 font-serif italic text-2xl">07</span>
                 <h3 className="text-xl font-serif font-medium text-brand-dark">Pináculos da Vida</h3>
                 <div className="flex-1 h-px bg-rose-neutral"></div>
               </div>
 
-              <div className="relative py-10 md:py-20 secao-form">
+              <div className="relative py-8 secao-form">
                 {/* Decorative Path */}
                 <div className="absolute top-1/2 left-0 w-full h-px bg-rose-neutral -translate-y-1/2 hidden md:block"></div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
                   {[
                     { id: 'p1', label: '1º Pináculo', age: '0 - 28 anos', color: 'bg-rose-gold-pale/50' },
                     { id: 'p2', label: '2º Pináculo', age: '29 - 37 anos', color: 'bg-rose-gold-pale' },
@@ -464,31 +464,31 @@ export default function App() {
                     { id: 'p4', label: '4º Pináculo', age: '47+ anos', color: 'bg-rose-gold text-white' }
                   ].map((p, idx) => (
                     <div key={p.id} className="flex flex-col items-center">
-                      <div className={`${p.color} w-full aspect-square rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 border border-rose-neutral focus-within:ring-2 focus-within:ring-rose-gold focus-within:ring-offset-2`}>
+                      <div className={`${p.color} w-full aspect-square rounded-[2.5rem] p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 border border-rose-neutral focus-within:ring-2 focus-within:ring-rose-gold focus-within:ring-offset-2`}>
                         <span className="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2">{p.label}</span>
                         <input
                           type="text"
                           value={formData.pinaculos[p.id as keyof typeof formData.pinaculos]}
                           onChange={(e) => updateField('pinaculos', p.id, e.target.value)}
-                          className="w-full text-4xl font-serif text-center bg-transparent border-none focus:ring-0 mb-2 outline-none"
+                          className="w-full text-4xl font-serif text-center bg-transparent border-none focus:ring-0 mb-1 outline-none"
                           placeholder="0"
                         />
                         <span className="text-[10px] font-medium opacity-60">{p.age}</span>
                       </div>
                       {idx < 3 && (
-                        <div className="md:hidden h-8 w-px bg-rose-neutral my-4"></div>
+                        <div className="md:hidden h-6 w-px bg-rose-neutral my-2"></div>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
               
-              <div className="mt-16 secao-form">
-                <div className="flex items-center gap-4 mb-6">
+              <div className="mt-8 secao-form flex-1 flex flex-col">
+                <div className="flex items-center gap-4 mb-4">
                   <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark/60">Cálculos e Anotações dos Pináculos</h4>
                   <div className="flex-1 h-px bg-rose-neutral/50"></div>
                 </div>
-                <div className="relative bg-white border border-rose-neutral rounded-3xl overflow-hidden shadow-inner">
+                <div className="relative bg-white border border-rose-neutral rounded-3xl overflow-hidden shadow-inner flex-1">
                   {/* Lined Paper Effect */}
                   <div className="absolute inset-0 pointer-events-none" style={{ 
                     backgroundImage: 'linear-gradient(transparent 31px, #f1e4e1 32px)',
@@ -499,15 +499,15 @@ export default function App() {
                     value={formData.pinaculos.notasCalculos}
                     onChange={(e) => updateField('pinaculos', 'notasCalculos', e.target.value)}
                     placeholder="Espaço para cálculos e anotações detalhadas..."
-                    className="w-full min-h-[13cm] bg-transparent p-8 font-serif text-lg leading-[32px] text-brand-dark focus:ring-0 border-none relative z-10 resize-none pinaculos-notes"
+                    className="w-full h-full min-h-[13cm] bg-transparent p-8 font-serif text-lg leading-[32px] text-brand-dark focus:ring-0 border-none relative z-10 resize-none pinaculos-notes"
                   />
                 </div>
-                <p className="text-[10px] text-brand-dark/40 mt-4 text-center italic">
+                <p className="text-[10px] text-brand-dark/40 mt-3 text-center italic">
                   Este espaço foi ampliado para permitir cálculos manuais e anotações detalhadas de cada ciclo.
                 </p>
               </div>
               
-              <div className="mt-12 p-8 bg-rose-gold-pale/30 rounded-3xl border border-rose-neutral">
+              <div className="mt-8 p-6 bg-rose-gold-pale/30 rounded-3xl border border-rose-neutral">
                 <p className="text-brand-dark/50 text-sm italic text-center">
                   "Os pináculos representam os ciclos de realização e as influências predominantes em cada fase da jornada."
                 </p>
@@ -516,15 +516,15 @@ export default function App() {
           </div>
 
           {/* PAGE 4: CHAKRAS */}
-          <div className="print-page-4 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden border border-rose-neutral">
-            <div className="p-12 md:p-16">
-              <div className="flex items-center gap-4 mb-12">
+          <div className="print-page-4 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden border border-rose-neutral flex flex-col">
+            <div className="p-8 md:p-16 flex-1 flex flex-col justify-between">
+              <div className="flex items-center gap-4 mb-10">
                 <span className="text-rose-gold/40 font-serif italic text-2xl">08</span>
                 <h3 className="text-xl font-serif font-medium text-brand-dark">Alinhamento dos Chakras</h3>
                 <div className="flex-1 h-px bg-rose-neutral"></div>
               </div>
 
-              <div className="space-y-6 secao-form">
+              <div className="space-y-4 secao-form flex-1 flex flex-col justify-between">
                 {[
                   { id: 'coronario', name: 'Coronário', color: 'text-purple-600', bg: 'bg-purple-50', icon: '✧' },
                   { id: 'frontal', name: 'Frontal', color: 'text-indigo-600', bg: 'bg-indigo-50', icon: '👁' },
@@ -534,23 +534,23 @@ export default function App() {
                   { id: 'esplenico', name: 'Esplênico', color: 'text-orange-500', bg: 'bg-orange-50', icon: '☽' },
                   { id: 'basico', name: 'Básico', color: 'text-rose-600', bg: 'bg-rose-50', icon: '⊕' }
                 ].map((chakra) => (
-                  <div key={chakra.id} className="group flex flex-col md:flex-row items-stretch gap-6 p-6 rounded-3xl border border-rose-neutral hover:border-rose-gold/20 transition-all duration-300 focus-within:bg-rose-gold-pale/30">
-                    <div className={`flex items-center gap-4 md:w-48 shrink-0`}>
-                      <span className={`text-2xl ${chakra.color} w-10 h-10 ${chakra.bg} rounded-full flex items-center justify-center font-serif shadow-inner`}>
+                  <div key={chakra.id} className="group flex flex-col md:flex-row items-center gap-4 p-4 rounded-2xl border border-rose-neutral hover:border-rose-gold/20 transition-all duration-300 focus-within:bg-rose-gold-pale/30">
+                    <div className={`flex items-center gap-4 md:w-40 shrink-0`}>
+                      <span className={`text-xl ${chakra.color} w-8 h-8 ${chakra.bg} rounded-full flex items-center justify-center font-serif shadow-inner`}>
                         {chakra.icon}
                       </span>
-                      <span className="font-serif font-medium text-brand-dark">{chakra.name}</span>
+                      <span className="font-serif font-medium text-brand-dark text-sm">{chakra.name}</span>
                     </div>
                     
-                    <div className="flex items-center gap-8 px-4 border-l border-rose-neutral">
-                      <label className="flex items-center gap-3 cursor-pointer group/check">
-                        <div className={`w-5 h-5 rounded-full border-2 transition-all ${
+                    <div className="flex items-center gap-6 px-4 md:border-l border-rose-neutral">
+                      <label className="flex items-center gap-2 cursor-pointer group/check">
+                        <div className={`w-4 h-4 rounded-full border-2 transition-all ${
                           formData.chakras[chakra.id as keyof typeof formData.chakras].equilibrado 
                             ? 'bg-emerald-500 border-emerald-500 scale-110' 
                             : 'border-rose-neutral group-hover/check:border-emerald-300'
                         }`}>
                           {formData.chakras[chakra.id as keyof typeof formData.chakras].equilibrado && (
-                            <div className="w-full h-full flex items-center justify-center text-white text-[10px]">✓</div>
+                            <div className="w-full h-full flex items-center justify-center text-white text-[8px]">✓</div>
                           )}
                         </div>
                         <input
@@ -565,17 +565,17 @@ export default function App() {
                             setFormData({ ...formData, chakras: newChakras });
                           }}
                         />
-                        <span className="text-[11px] uppercase tracking-widest font-bold text-brand-dark/60 group-hover/check:text-brand-dark transition-colors">Equilibrado</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-brand-dark/60 group-hover/check:text-brand-dark transition-colors">Equilibrado</span>
                       </label>
 
-                      <label className="flex items-center gap-3 cursor-pointer group/check">
-                        <div className={`w-5 h-5 rounded-full border-2 transition-all ${
+                      <label className="flex items-center gap-2 cursor-pointer group/check">
+                        <div className={`w-4 h-4 rounded-full border-2 transition-all ${
                           formData.chakras[chakra.id as keyof typeof formData.chakras].desequilibrio 
                             ? 'bg-rose-500 border-rose-500 scale-110' 
                             : 'border-rose-neutral group-hover/check:border-rose-300'
                         }`}>
                           {formData.chakras[chakra.id as keyof typeof formData.chakras].desequilibrio && (
-                            <div className="w-full h-full flex items-center justify-center text-white text-[10px]">!</div>
+                            <div className="w-full h-full flex items-center justify-center text-white text-[8px]">!</div>
                           )}
                         </div>
                         <input
@@ -590,11 +590,11 @@ export default function App() {
                             setFormData({ ...formData, chakras: newChakras });
                           }}
                         />
-                        <span className="text-[11px] uppercase tracking-widest font-bold text-brand-dark/60 group-hover/check:text-brand-dark transition-colors">Desequilíbrio</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-brand-dark/60 group-hover/check:text-brand-dark transition-colors">Desequilíbrio</span>
                       </label>
                     </div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 w-full">
                       <input
                         type="text"
                         placeholder="Observações..."
@@ -604,7 +604,7 @@ export default function App() {
                           (newChakras as any)[chakra.id].observacoes = e.target.value;
                           setFormData({ ...formData, chakras: newChakras });
                         }}
-                        className="w-full bg-transparent border-none focus:ring-0 text-sm text-brand-dark italic placeholder:text-rose-neutral/50 outline-none focus:bg-white rounded px-2 transition-colors border-b border-transparent focus:border-rose-gold/30"
+                        className="w-full bg-transparent border-none focus:ring-0 text-xs text-brand-dark italic placeholder:text-rose-neutral/50 outline-none focus:bg-white rounded px-2 transition-colors border-b border-transparent focus:border-rose-gold/30"
                       />
                     </div>
                   </div>
@@ -658,17 +658,20 @@ export default function App() {
             background: white !important;
           }
           .print-page-1, .print-page-2, .print-page-3, .print-page-4 {
-            padding: 15mm 20mm !important;
+            padding: 10mm 15mm !important;
             min-height: 297mm !important;
+            height: 297mm !important;
             page-break-after: always !important;
             break-after: page !important;
             display: flex !important;
             flex-direction: column !important;
+            justify-content: space-between !important;
             box-sizing: border-box !important;
             position: relative !important;
             border: none !important;
             box-shadow: none !important;
             border-radius: 0 !important;
+            background: white !important;
           }
           .print-page-4 {
             page-break-after: auto !important;
@@ -677,6 +680,7 @@ export default function App() {
           .secao-form {
             page-break-inside: avoid !important;
             break-inside: avoid !important;
+            margin-bottom: 5mm !important;
           }
           textarea {
             border: none !important;
@@ -688,9 +692,11 @@ export default function App() {
             overflow: hidden !important;
             display: block !important;
             width: 100% !important;
+            padding: 5mm !important;
           }
           .pinaculos-notes {
             min-height: 130mm !important;
+            height: auto !important;
           }
           input {
             border: none !important;
