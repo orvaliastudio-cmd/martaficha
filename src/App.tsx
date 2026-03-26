@@ -133,24 +133,29 @@ export default function App() {
   }, [formData.cliente.nomeCompleto]);
 
   return (
-    <div className="min-h-screen bg-[#FDFCFB] text-stone-800 font-sans selection:bg-stone-200">
+    <div className="min-h-screen bg-brand-beige text-brand-dark font-sans selection:bg-rose-gold/10">
       {/* Top Navigation / Header */}
-      <header className="no-print sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-100 px-6 py-4">
+      <header className="no-print sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-rose-neutral px-6 py-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-stone-900 rounded-full flex items-center justify-center text-white shadow-lg">
-              <FileText size={20} />
+          <div className="flex items-center gap-4">
+            <div className="h-12 flex items-center">
+              <img 
+                src="https://i.ibb.co/3mVPmrm8/marta-perfil-fundo-transparente.png" 
+                alt="Logo Marta" 
+                className="h-full w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <div>
-              <h1 className="text-xl font-serif font-semibold tracking-tight text-stone-900">Marta Ficha</h1>
-              <p className="text-xs text-stone-500 uppercase tracking-widest font-medium">Atendimento Integrativo</p>
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-serif font-semibold tracking-tight text-brand-dark">Marta Ficha</h1>
+              <p className="text-[9px] text-rose-gold uppercase tracking-[0.3em] font-bold">Atendimento Integrativo</p>
             </div>
           </div>
           
           <div className="flex items-center gap-2">
             <button
               onClick={handleClear}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-stone-600 hover:text-rose-600 hover:bg-rose-50 rounded-full transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-brand-dark/60 hover:text-rose-600 hover:bg-rose-50 rounded-full transition-all duration-300"
               title="Limpar todos os campos"
             >
               <Trash2 size={16} />
@@ -158,7 +163,7 @@ export default function App() {
             </button>
             <button
               onClick={handlePrintBlank}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-brand-dark/60 hover:text-brand-dark hover:bg-rose-neutral/50 rounded-full transition-all duration-300"
               title="Imprimir ficha em branco"
             >
               <FileText size={16} />
@@ -166,7 +171,7 @@ export default function App() {
             </button>
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 px-6 py-2 bg-stone-900 text-white text-sm font-medium rounded-full hover:bg-stone-800 hover:shadow-xl active:scale-95 transition-all duration-300 shadow-lg shadow-stone-200"
+              className="flex items-center gap-2 px-6 py-2 bg-rose-gold text-white text-sm font-medium rounded-full hover:bg-rose-gold/90 hover:shadow-xl active:scale-95 transition-all duration-300 shadow-lg shadow-rose-gold/20"
             >
               <Printer size={16} />
               <span>Imprimir / PDF</span>
@@ -179,14 +184,27 @@ export default function App() {
         {/* Hero / Intro Section */}
         <section className="no-print mb-16 text-center max-w-2xl mx-auto">
           <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-8 flex justify-center"
+          >
+            <img 
+              src="https://i.ibb.co/NQym5vN/C-pia-de-marta-perfil-fundo-transparente.png" 
+              alt="Marta Perfil" 
+              className="w-40 h-40 rounded-full shadow-2xl border-4 border-white object-cover bg-white"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-4xl md:text-5xl font-serif italic text-stone-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-serif italic text-brand-dark mb-6">
               Ficha de Atendimento
             </h2>
-            <p className="text-stone-600 leading-relaxed text-lg font-light">
+            <p className="text-brand-dark/70 leading-relaxed text-lg font-light">
               Um espaço dedicado para organizar informações terapêuticas, numerológicas e energéticas, 
               criando um registro fluido e elegante para seus atendimentos.
             </p>
@@ -201,19 +219,19 @@ export default function App() {
                 step: "01", 
                 title: "Preenchimento", 
                 desc: "Insira os dados do cliente e as informações numerológicas nos campos abaixo.",
-                color: "bg-stone-100"
+                color: "bg-white border border-rose-neutral"
               },
               { 
                 step: "02", 
                 title: "Análise Energética", 
                 desc: "Marque os planos de consciência e o estado dos chakras durante a sessão.",
-                color: "bg-stone-200"
+                color: "bg-rose-gold-pale border border-rose-gold/10"
               },
               { 
                 step: "03", 
                 title: "Finalização", 
                 desc: "Revise tudo e clique em imprimir para gerar o PDF ou a ficha física.",
-                color: "bg-stone-900 text-white"
+                color: "bg-rose-gold text-white shadow-lg shadow-rose-gold/20"
               }
             ].map((item, idx) => (
               <motion.div
@@ -223,10 +241,10 @@ export default function App() {
                 transition={{ delay: idx * 0.1 }}
                 className={`${item.color} p-8 rounded-3xl flex flex-col justify-between min-h-[200px] shadow-sm hover:shadow-md transition-shadow duration-300`}
               >
-                <span className="text-xs font-bold tracking-widest opacity-50">{item.step}</span>
+                <span className={`text-xs font-bold tracking-widest ${item.color.includes('rose-gold') ? 'opacity-70' : 'opacity-50 text-rose-gold'}`}>{item.step}</span>
                 <div>
                   <h3 className="text-xl font-serif font-medium mb-2">{item.title}</h3>
-                  <p className={`text-sm leading-relaxed ${item.color.includes('900') ? 'text-stone-300' : 'text-stone-600'}`}>
+                  <p className={`text-sm leading-relaxed ${item.color.includes('rose-gold') ? 'text-white/80' : 'text-brand-dark/70'}`}>
                     {item.desc}
                   </p>
                 </div>
@@ -239,21 +257,29 @@ export default function App() {
         <div ref={printRef} className="print-container mx-auto">
           
           {/* PAGE 1: CLIENTE & NUMEROLOGIA */}
-          <div className="print-page-1 bg-white shadow-2xl shadow-stone-200/50 rounded-[2rem] overflow-hidden mb-12 border border-stone-100">
+          <div className="print-page-1 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral">
             <div className="p-12 md:p-16">
               {/* Header inside print */}
-              <div className="flex justify-between items-start border-b border-stone-100 pb-12 mb-12">
-                <div>
-                  <h2 className="text-3xl font-serif italic text-stone-900 mb-2">Ficha de Atendimento</h2>
-                  <p className="text-stone-500 uppercase tracking-[0.2em] text-[10px] font-semibold">Registro Terapêutico & Numerológico</p>
+              <div className="flex justify-between items-start border-b border-rose-neutral pb-12 mb-12">
+                <div className="flex items-center gap-6">
+                  <img 
+                    src="https://i.ibb.co/3mVPmrm8/marta-perfil-fundo-transparente.png" 
+                    alt="Logo" 
+                    className="h-20 w-auto object-contain"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div>
+                    <h2 className="text-3xl font-serif italic text-brand-dark mb-2">Ficha de Atendimento</h2>
+                    <p className="text-rose-gold uppercase tracking-[0.2em] text-[10px] font-bold">Registro Terapêutico & Numerológico</p>
+                  </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-stone-400 text-[10px] uppercase font-bold mb-1">Data do Atendimento</p>
+                  <p className="text-rose-gold text-[10px] uppercase font-bold mb-1">Data do Atendimento</p>
                   <input
                     type="date"
                     value={formData.cliente.dataAtendimento}
                     onChange={(e) => updateField('cliente', 'dataAtendimento', e.target.value)}
-                    className="text-right bg-transparent border-none focus:ring-0 text-stone-900 font-medium cursor-pointer focus:bg-white rounded px-2 transition-colors border-b border-transparent focus:border-stone-200"
+                    className="text-right bg-transparent border-none focus:ring-0 text-brand-dark font-medium cursor-pointer focus:bg-rose-gold-pale rounded px-2 transition-colors border-b border-transparent focus:border-rose-gold/30"
                   />
                 </div>
               </div>
@@ -261,28 +287,28 @@ export default function App() {
               {/* Section: Cliente */}
               <div className="mb-16 secao-form">
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="text-stone-300 font-serif italic text-2xl">01</span>
-                  <h3 className="text-xl font-serif font-medium text-stone-900">Informações do Cliente</h3>
-                  <div className="flex-1 h-px bg-stone-100"></div>
+                  <span className="text-rose-gold/40 font-serif italic text-2xl">01</span>
+                  <h3 className="text-xl font-serif font-medium text-brand-dark">Informações do Cliente</h3>
+                  <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400 ml-1">Nome Completo</label>
+                    <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark ml-1">Nome Completo (Nome de Batismo)</label>
                     <input
                       type="text"
                       placeholder="Ex: Maria Silva"
                       value={formData.cliente.nomeCompleto}
                       onChange={(e) => updateField('cliente', 'nomeCompleto', e.target.value)}
-                      className="w-full bg-stone-50/50 border-b-2 border-stone-200 px-4 py-3 focus:border-stone-900 focus:bg-white transition-all outline-none text-stone-900 placeholder:text-stone-300 rounded-t-lg shadow-sm focus:shadow-md border-x border-t border-transparent"
+                      className="w-full bg-rose-gold-pale/30 border-b-2 border-rose-neutral px-4 py-3 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark placeholder:text-brand-dark/20 rounded-t-lg shadow-sm focus:shadow-md border-x border-t border-transparent"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400 ml-1">Data de Nascimento</label>
+                    <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark ml-1">Data de Nascimento</label>
                     <input
                       type="date"
                       value={formData.cliente.dataNascimento}
                       onChange={(e) => updateField('cliente', 'dataNascimento', e.target.value)}
-                      className="w-full bg-stone-50/50 border-b-2 border-stone-200 px-4 py-3 focus:border-stone-900 focus:bg-white transition-all outline-none text-stone-900 rounded-t-lg cursor-pointer shadow-sm focus:shadow-md border-x border-t border-transparent"
+                      className="w-full bg-rose-gold-pale/30 border-b-2 border-rose-neutral px-4 py-3 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark rounded-t-lg cursor-pointer shadow-sm focus:shadow-md border-x border-t border-transparent"
                     />
                   </div>
                 </div>
@@ -291,23 +317,23 @@ export default function App() {
               {/* Section: Numerologia */}
               <div className="mb-16 secao-form">
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="text-stone-300 font-serif italic text-2xl">02</span>
-                  <h3 className="text-xl font-serif font-medium text-stone-900">Mapa Numerológico</h3>
-                  <div className="flex-1 h-px bg-stone-100"></div>
+                  <span className="text-rose-gold/40 font-serif italic text-2xl">02</span>
+                  <h3 className="text-xl font-serif font-medium text-brand-dark">Mapa Numerológico</h3>
+                  <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {[
-                    { label: "Alma", field: "alma", color: "border-purple-100", focus: "focus:border-purple-400" },
-                    { label: "Personalidade", field: "personalidade", color: "border-indigo-100", focus: "focus:border-indigo-400" },
-                    { label: "Destino", field: "destino", color: "border-blue-100", focus: "focus:border-blue-400" }
+                    { label: "Alma", field: "alma", color: "border-rose-gold/20", focus: "focus:border-rose-gold" },
+                    { label: "Personalidade", field: "personalidade", color: "border-rose-gold/20", focus: "focus:border-rose-gold" },
+                    { label: "Destino", field: "destino", color: "border-rose-neutral", focus: "focus:border-rose-gold" }
                   ].map((item) => (
                     <div key={item.field} className={`bg-white border ${item.color} p-6 rounded-2xl shadow-sm transition-all hover:shadow-md`}>
-                      <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-3 block">{item.label}</label>
+                      <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark mb-3 block">{item.label}</label>
                       <input
                         type="text"
                         value={formData.numerologia[item.field as keyof typeof formData.numerologia]}
                         onChange={(e) => updateField('numerologia', item.field, e.target.value)}
-                        className={`w-full text-2xl font-serif text-center bg-transparent border-none focus:ring-0 text-stone-900 outline-none rounded-lg transition-colors focus:bg-stone-50 focus:shadow-inner`}
+                        className={`w-full text-2xl font-serif text-center bg-transparent border-none focus:ring-0 text-brand-dark outline-none rounded-lg transition-colors focus:bg-rose-gold-pale/20 focus:shadow-inner`}
                         placeholder="0"
                       />
                     </div>
@@ -318,28 +344,28 @@ export default function App() {
               {/* Section: Leitura */}
               <div className="secao-form">
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="text-stone-300 font-serif italic text-2xl">03</span>
-                  <h3 className="text-xl font-serif font-medium text-stone-900">Leitura & Ciclos</h3>
-                  <div className="flex-1 h-px bg-stone-100"></div>
+                  <span className="text-rose-gold/40 font-serif italic text-2xl">03</span>
+                  <h3 className="text-xl font-serif font-medium text-brand-dark">Leitura & Ciclos</h3>
+                  <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-4">
-                    <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400 ml-1">Lição de Vida</label>
+                    <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark ml-1">Lição de Vida</label>
                     <textarea
                       rows={4}
                       value={formData.leitura.licaoDeVida}
                       onChange={(e) => updateField('leitura', 'licaoDeVida', e.target.value)}
-                      className="w-full bg-stone-50/30 border border-stone-100 rounded-2xl p-5 focus:border-stone-900 focus:bg-white transition-all outline-none text-stone-700 leading-relaxed resize-none shadow-inner focus:shadow-md"
+                      className="w-full bg-rose-gold-pale/20 border border-rose-neutral rounded-2xl p-5 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark leading-relaxed resize-none shadow-inner focus:shadow-md"
                       placeholder="Descreva os principais aprendizados..."
                     />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400 ml-1">Ano Pessoal</label>
+                    <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark ml-1">Ano Pessoal</label>
                     <textarea
                       rows={4}
                       value={formData.leitura.anoPessoal}
                       onChange={(e) => updateField('leitura', 'anoPessoal', e.target.value)}
-                      className="w-full bg-stone-50/30 border border-stone-100 rounded-2xl p-5 focus:border-stone-900 focus:bg-white transition-all outline-none text-stone-700 leading-relaxed resize-none shadow-inner focus:shadow-md"
+                      className="w-full bg-rose-gold-pale/20 border border-rose-neutral rounded-2xl p-5 focus:border-rose-gold focus:bg-white transition-all outline-none text-brand-dark leading-relaxed resize-none shadow-inner focus:shadow-md"
                       placeholder="Tendências para o ciclo atual..."
                     />
                   </div>
@@ -349,14 +375,14 @@ export default function App() {
           </div>
 
           {/* PAGE 2: PLANOS & KARMA/DARMA */}
-          <div className="print-page-2 bg-white shadow-2xl shadow-stone-200/50 rounded-[2rem] overflow-hidden mb-12 border border-stone-100">
+          <div className="print-page-2 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral">
             <div className="p-12 md:p-16">
               {/* Section: Planos de Consciência */}
               <div className="mb-20 secao-form">
                 <div className="flex items-center gap-4 mb-10">
-                  <span className="text-stone-300 font-serif italic text-2xl">04</span>
-                  <h3 className="text-xl font-serif font-medium text-stone-900">Planos de Consciência</h3>
-                  <div className="flex-1 h-px bg-stone-100"></div>
+                  <span className="text-rose-gold/40 font-serif italic text-2xl">04</span>
+                  <h3 className="text-xl font-serif font-medium text-brand-dark">Planos de Consciência</h3>
+                  <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
                 <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-4">
                   {formData.planosConsciencia.map((checked, idx) => (
@@ -364,8 +390,8 @@ export default function App() {
                       <div
                         className={`w-12 h-12 rounded-xl flex items-center justify-center text-lg font-serif transition-all duration-300 border-2 ${
                           checked 
-                            ? 'bg-stone-900 border-stone-900 text-white shadow-md' 
-                            : 'bg-white border-stone-100 text-stone-400 group-hover:border-stone-300'
+                            ? 'bg-rose-gold border-rose-gold text-white shadow-md' 
+                            : 'bg-white border-rose-neutral text-brand-dark/30 group-hover:border-rose-gold-soft'
                         }`}
                       >
                         {idx + 1}
@@ -373,14 +399,10 @@ export default function App() {
                           type="checkbox"
                           className="hidden"
                           checked={checked}
-                          onChange={() => {
-                            const newPlanos = [...formData.planosConsciencia];
-                            newPlanos[idx] = !newPlanos[idx];
-                            setFormData({ ...formData, planosConsciencia: newPlanos });
-                          }}
+                          onChange={() => togglePlano(idx)}
                         />
                       </div>
-                      <span className="text-[9px] uppercase tracking-tighter font-bold text-stone-400 group-hover:text-stone-600 transition-colors">Plano {idx + 1}</span>
+                      <span className="text-[9px] uppercase tracking-tighter font-bold text-brand-dark/40 group-hover:text-rose-gold transition-colors">Plano {idx + 1}</span>
                     </label>
                   ))}
                 </div>
@@ -390,14 +412,14 @@ export default function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 secao-form">
                 <div className="relative">
                   <div className="flex items-center gap-4 mb-8">
-                    <span className="text-rose-200 font-serif italic text-2xl">05</span>
-                    <h3 className="text-xl font-serif font-medium text-stone-900">Karma</h3>
-                    <div className="flex-1 h-px bg-rose-50"></div>
+                    <span className="text-rose-gold/40 font-serif italic text-2xl">05</span>
+                    <h3 className="text-xl font-serif font-medium text-brand-dark">Karma</h3>
+                    <div className="flex-1 h-px bg-rose-neutral"></div>
                   </div>
-                  <div className="bg-rose-50/30 border border-rose-100 rounded-[2rem] p-8 min-h-[300px] relative overflow-hidden transition-all focus-within:bg-white focus-within:border-rose-300 focus-within:shadow-lg">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-rose-100/20 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+                  <div className="bg-rose-gold-pale/20 border border-rose-neutral rounded-[2rem] p-8 min-h-[300px] relative overflow-hidden transition-all focus-within:bg-white focus-within:border-rose-gold/30 focus-within:shadow-lg">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-rose-gold/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                     <textarea
-                      className="w-full h-full bg-transparent border-none focus:ring-0 text-stone-700 leading-relaxed resize-none outline-none"
+                      className="w-full h-full bg-transparent border-none focus:ring-0 text-brand-dark leading-relaxed resize-none outline-none"
                       placeholder="Desafios e lições pendentes..."
                       value={formData.karma}
                       onChange={(e) => setFormData({ ...formData, karma: e.target.value })}
@@ -407,14 +429,14 @@ export default function App() {
 
                 <div className="relative">
                   <div className="flex items-center gap-4 mb-8">
-                    <span className="text-emerald-200 font-serif italic text-2xl">06</span>
-                    <h3 className="text-xl font-serif font-medium text-stone-900">Darma</h3>
-                    <div className="flex-1 h-px bg-emerald-50"></div>
+                    <span className="text-rose-gold/40 font-serif italic text-2xl">06</span>
+                    <h3 className="text-xl font-serif font-medium text-brand-dark">Darma</h3>
+                    <div className="flex-1 h-px bg-rose-neutral"></div>
                   </div>
-                  <div className="bg-emerald-50/30 border border-emerald-100 rounded-[2rem] p-8 min-h-[300px] relative overflow-hidden transition-all focus-within:bg-white focus-within:border-emerald-300 focus-within:shadow-lg">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-100/20 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+                  <div className="bg-rose-gold-pale/20 border border-rose-neutral rounded-[2rem] p-8 min-h-[300px] relative overflow-hidden transition-all focus-within:bg-white focus-within:border-rose-gold/30 focus-within:shadow-lg">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-rose-gold/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                     <textarea
-                      className="w-full h-full bg-transparent border-none focus:ring-0 text-stone-700 leading-relaxed resize-none outline-none"
+                      className="w-full h-full bg-transparent border-none focus:ring-0 text-brand-dark leading-relaxed resize-none outline-none"
                       placeholder="Dons, talentos e propósitos..."
                       value={formData.darma}
                       onChange={(e) => setFormData({ ...formData, darma: e.target.value })}
@@ -426,27 +448,27 @@ export default function App() {
           </div>
 
           {/* PAGE 3: PINÁCULOS */}
-          <div className="print-page-3 bg-white shadow-2xl shadow-stone-200/50 rounded-[2rem] overflow-hidden mb-12 border border-stone-100">
+          <div className="print-page-3 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral">
             <div className="p-12 md:p-16">
               <div className="flex items-center gap-4 mb-12">
-                <span className="text-stone-300 font-serif italic text-2xl">07</span>
-                <h3 className="text-xl font-serif font-medium text-stone-900">Pináculos da Vida</h3>
-                <div className="flex-1 h-px bg-stone-100"></div>
+                <span className="text-rose-gold/40 font-serif italic text-2xl">07</span>
+                <h3 className="text-xl font-serif font-medium text-brand-dark">Pináculos da Vida</h3>
+                <div className="flex-1 h-px bg-rose-neutral"></div>
               </div>
 
               <div className="relative py-10 md:py-20 secao-form">
                 {/* Decorative Path */}
-                <div className="absolute top-1/2 left-0 w-full h-px bg-stone-100 -translate-y-1/2 hidden md:block"></div>
+                <div className="absolute top-1/2 left-0 w-full h-px bg-rose-neutral -translate-y-1/2 hidden md:block"></div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
                   {[
-                    { id: 'p1', label: '1º Pináculo', age: '0 - 28 anos', color: 'bg-stone-50' },
-                    { id: 'p2', label: '2º Pináculo', age: '29 - 37 anos', color: 'bg-stone-100' },
-                    { id: 'p3', label: '3º Pináculo', age: '38 - 46 anos', color: 'bg-stone-200' },
-                    { id: 'p4', label: '4º Pináculo', age: '47+ anos', color: 'bg-stone-900 text-white' }
+                    { id: 'p1', label: '1º Pináculo', age: '0 - 28 anos', color: 'bg-rose-gold-pale/50' },
+                    { id: 'p2', label: '2º Pináculo', age: '29 - 37 anos', color: 'bg-rose-gold-pale' },
+                    { id: 'p3', label: '3º Pináculo', age: '38 - 46 anos', color: 'bg-rose-gold-soft/20' },
+                    { id: 'p4', label: '4º Pináculo', age: '47+ anos', color: 'bg-rose-gold text-white' }
                   ].map((p, idx) => (
                     <div key={p.id} className="flex flex-col items-center">
-                      <div className={`${p.color} w-full aspect-square rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100 focus-within:ring-2 focus-within:ring-stone-400 focus-within:ring-offset-2`}>
+                      <div className={`${p.color} w-full aspect-square rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 border border-rose-neutral focus-within:ring-2 focus-within:ring-rose-gold focus-within:ring-offset-2`}>
                         <span className="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2">{p.label}</span>
                         <input
                           type="text"
@@ -458,15 +480,15 @@ export default function App() {
                         <span className="text-[10px] font-medium opacity-60">{p.age}</span>
                       </div>
                       {idx < 3 && (
-                        <div className="md:hidden h-8 w-px bg-stone-200 my-4"></div>
+                        <div className="md:hidden h-8 w-px bg-rose-neutral my-4"></div>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
               
-              <div className="mt-12 p-8 bg-stone-50/50 rounded-3xl border border-stone-100">
-                <p className="text-stone-500 text-sm italic text-center">
+              <div className="mt-12 p-8 bg-rose-gold-pale/30 rounded-3xl border border-rose-neutral">
+                <p className="text-brand-dark/50 text-sm italic text-center">
                   "Os pináculos representam os ciclos de realização e as influências predominantes em cada fase da jornada."
                 </p>
               </div>
@@ -474,12 +496,12 @@ export default function App() {
           </div>
 
           {/* PAGE 4: CHAKRAS */}
-          <div className="print-page-4 bg-white shadow-2xl shadow-stone-200/50 rounded-[2rem] overflow-hidden border border-stone-100">
+          <div className="print-page-4 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden border border-rose-neutral">
             <div className="p-12 md:p-16">
               <div className="flex items-center gap-4 mb-12">
-                <span className="text-stone-300 font-serif italic text-2xl">08</span>
-                <h3 className="text-xl font-serif font-medium text-stone-900">Alinhamento dos Chakras</h3>
-                <div className="flex-1 h-px bg-stone-100"></div>
+                <span className="text-rose-gold/40 font-serif italic text-2xl">08</span>
+                <h3 className="text-xl font-serif font-medium text-brand-dark">Alinhamento dos Chakras</h3>
+                <div className="flex-1 h-px bg-rose-neutral"></div>
               </div>
 
               <div className="space-y-6 secao-form">
@@ -492,20 +514,20 @@ export default function App() {
                   { id: 'esplenico', name: 'Esplênico', color: 'text-orange-500', bg: 'bg-orange-50', icon: '☽' },
                   { id: 'basico', name: 'Básico', color: 'text-rose-600', bg: 'bg-rose-50', icon: '⊕' }
                 ].map((chakra) => (
-                  <div key={chakra.id} className="group flex flex-col md:flex-row items-stretch gap-6 p-6 rounded-3xl border border-stone-100 hover:border-stone-200 transition-all duration-300 focus-within:bg-stone-50/30">
+                  <div key={chakra.id} className="group flex flex-col md:flex-row items-stretch gap-6 p-6 rounded-3xl border border-rose-neutral hover:border-rose-gold/20 transition-all duration-300 focus-within:bg-rose-gold-pale/30">
                     <div className={`flex items-center gap-4 md:w-48 shrink-0`}>
                       <span className={`text-2xl ${chakra.color} w-10 h-10 ${chakra.bg} rounded-full flex items-center justify-center font-serif shadow-inner`}>
                         {chakra.icon}
                       </span>
-                      <span className="font-serif font-medium text-stone-900">{chakra.name}</span>
+                      <span className="font-serif font-medium text-brand-dark">{chakra.name}</span>
                     </div>
                     
-                    <div className="flex items-center gap-8 px-4 border-l border-stone-100">
+                    <div className="flex items-center gap-8 px-4 border-l border-rose-neutral">
                       <label className="flex items-center gap-3 cursor-pointer group/check">
                         <div className={`w-5 h-5 rounded-full border-2 transition-all ${
                           formData.chakras[chakra.id as keyof typeof formData.chakras].equilibrado 
                             ? 'bg-emerald-500 border-emerald-500 scale-110' 
-                            : 'border-stone-200 group-hover/check:border-stone-400'
+                            : 'border-rose-neutral group-hover/check:border-emerald-300'
                         }`}>
                           {formData.chakras[chakra.id as keyof typeof formData.chakras].equilibrado && (
                             <div className="w-full h-full flex items-center justify-center text-white text-[10px]">✓</div>
@@ -523,14 +545,14 @@ export default function App() {
                             setFormData({ ...formData, chakras: newChakras });
                           }}
                         />
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-stone-500 group-hover/check:text-stone-800 transition-colors">Equilibrado</span>
+                        <span className="text-[11px] uppercase tracking-widest font-bold text-brand-dark/60 group-hover/check:text-brand-dark transition-colors">Equilibrado</span>
                       </label>
 
                       <label className="flex items-center gap-3 cursor-pointer group/check">
                         <div className={`w-5 h-5 rounded-full border-2 transition-all ${
                           formData.chakras[chakra.id as keyof typeof formData.chakras].desequilibrio 
                             ? 'bg-rose-500 border-rose-500 scale-110' 
-                            : 'border-stone-200 group-hover/check:border-stone-400'
+                            : 'border-rose-neutral group-hover/check:border-rose-300'
                         }`}>
                           {formData.chakras[chakra.id as keyof typeof formData.chakras].desequilibrio && (
                             <div className="w-full h-full flex items-center justify-center text-white text-[10px]">!</div>
@@ -548,7 +570,7 @@ export default function App() {
                             setFormData({ ...formData, chakras: newChakras });
                           }}
                         />
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-stone-500 group-hover/check:text-stone-800 transition-colors">Desequilíbrio</span>
+                        <span className="text-[11px] uppercase tracking-widest font-bold text-brand-dark/60 group-hover/check:text-brand-dark transition-colors">Desequilíbrio</span>
                       </label>
                     </div>
 
@@ -562,7 +584,7 @@ export default function App() {
                           (newChakras as any)[chakra.id].observacoes = e.target.value;
                           setFormData({ ...formData, chakras: newChakras });
                         }}
-                        className="w-full bg-transparent border-none focus:ring-0 text-sm text-stone-600 italic placeholder:text-stone-200 outline-none focus:bg-white rounded px-2 transition-colors border-b border-transparent focus:border-stone-200"
+                        className="w-full bg-transparent border-none focus:ring-0 text-sm text-brand-dark italic placeholder:text-rose-neutral/50 outline-none focus:bg-white rounded px-2 transition-colors border-b border-transparent focus:border-rose-gold/30"
                       />
                     </div>
                   </div>
@@ -574,18 +596,18 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="no-print border-t border-stone-100 py-12 text-center">
+      <footer className="no-print border-t border-rose-neutral py-12 text-center">
         <div className="mb-8">
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-stone-900 text-white text-sm font-medium rounded-full hover:bg-stone-800 hover:shadow-xl active:scale-95 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-rose-gold text-white text-sm font-medium rounded-full hover:bg-rose-gold/90 hover:shadow-xl active:scale-95 transition-all duration-300"
           >
             <Printer size={18} />
             <span>Gerar PDF Agora</span>
           </button>
         </div>
-        <p className="text-stone-400 text-xs uppercase tracking-[0.3em] font-bold mb-2">Marta Ficha</p>
-        <p className="text-stone-300 text-[10px]">© 2026 • Atendimento Holístico & Numerologia</p>
+        <p className="text-rose-gold text-xs uppercase tracking-[0.3em] font-bold mb-2">Marta Ficha</p>
+        <p className="text-brand-dark/40 text-[10px]">© 2026 • Atendimento Holístico & Numerologia</p>
       </footer>
 
       {/* Global Styles for Print & Customization */}
@@ -652,8 +674,8 @@ export default function App() {
           input::placeholder {
             color: transparent !important;
           }
-          .bg-stone-50\\/50, .bg-stone-50\\/30, .bg-stone-50 {
-            background-color: #f9fafb !important;
+          .bg-rose-gold-pale\\/50, .bg-rose-gold-pale\\/30, .bg-rose-gold-pale {
+            background-color: #FFF9F8 !important;
           }
           .shadow-2xl, .shadow-md, .shadow-lg, .shadow-sm {
             box-shadow: none !important;
@@ -661,8 +683,8 @@ export default function App() {
           .rounded-3xl, .rounded-2xl, .rounded-xl, .rounded-\\[2rem\\] {
             border-radius: 0 !important;
           }
-          .border-stone-100, .border-stone-200 {
-            border-color: #f3f4f6 !important;
+          .border-rose-neutral, .border-rose-gold\\/20 {
+            border-color: #F5E6E3 !important;
           }
         }
 
@@ -671,14 +693,14 @@ export default function App() {
           width: 8px;
         }
         ::-webkit-scrollbar-track {
-          background: #f1f1f1;
+          background: #FAF3F2;
         }
         ::-webkit-scrollbar-thumb {
-          background: #d6d3d1;
+          background: #E0BFB8;
           border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-          background: #a8a29e;
+          background: #B76E79;
         }
       `}</style>
     </div>

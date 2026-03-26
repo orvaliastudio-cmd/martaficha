@@ -4,6 +4,13 @@
 @theme {
   --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", serif;
+  
+  --color-rose-gold: #B76E79;
+  --color-rose-gold-soft: #E0BFB8;
+  --color-rose-gold-pale: #FAF3F2;
+  --color-brand-beige: #FFF9F8;
+  --color-brand-dark: #2D2926;
+  --color-rose-neutral: #F5E6E3;
 }
 
 @layer base {
