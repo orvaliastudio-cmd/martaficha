@@ -28,7 +28,12 @@ interface FormData {
     licaoDeVida: string;
     anoPessoal: string;
   };
-  planosConsciencia: boolean[];
+  planosConsciencia: {
+    fisico: string;
+    emocional: string;
+    mental: string;
+    intuitivo: string;
+  };
   karma: string;
   darma: string;
   chakras: {
@@ -54,7 +59,7 @@ const initialData: FormData = {
   cliente: { dataAtendimento: '', dataNascimento: '', nomeCompleto: '' },
   numerologia: { alma: '', personalidade: '', destino: '' },
   leitura: { licaoDeVida: '', anoPessoal: '' },
-  planosConsciencia: Array(9).fill(false),
+  planosConsciencia: { fisico: '', emocional: '', mental: '', intuitivo: '' },
   karma: '',
   darma: '',
   chakras: {
@@ -103,12 +108,6 @@ export default function App() {
     }));
   };
 
-  const togglePlano = (index: number) => {
-    const newPlanos = [...formData.planosConsciencia];
-    newPlanos[index] = !newPlanos[index];
-    setFormData((prev) => ({ ...prev, planosConsciencia: newPlanos }));
-  };
-
   const updateChakra = (key: keyof FormData['chakras'], field: keyof ChakraData, value: any) => {
     setFormData((prev) => ({
       ...prev,
@@ -138,17 +137,13 @@ export default function App() {
       <header className="no-print sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-rose-neutral px-6 py-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="h-12 flex items-center">
+            <div className="h-10 flex items-center">
               <img 
-                src="https://i.ibb.co/3mVPmrm8/marta-perfil-fundo-transparente.png" 
+                src="https://i.ibb.co/NQym5vN/C-pia-de-marta-perfil-fundo-transparente.png" 
                 alt="Logo Marta" 
-                className="h-full w-auto object-contain"
+                className="h-full w-auto object-contain rounded-full border border-rose-neutral"
                 referrerPolicy="no-referrer"
               />
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-serif font-semibold tracking-tight text-brand-dark">Marta Ficha</h1>
-              <p className="text-[9px] text-rose-gold uppercase tracking-[0.3em] font-bold">Atendimento Integrativo</p>
             </div>
           </div>
           
@@ -182,17 +177,17 @@ export default function App() {
 
       <main className="max-w-6xl mx-auto px-6 py-12 pb-24">
         {/* Hero / Intro Section */}
-        <section className="no-print mb-16 text-center max-w-2xl mx-auto">
+        <section className="no-print mb-16 text-center max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="mb-8 flex justify-center"
+            className="mb-10 flex justify-center"
           >
             <img 
-              src="https://i.ibb.co/NQym5vN/C-pia-de-marta-perfil-fundo-transparente.png" 
-              alt="Marta Perfil" 
-              className="w-40 h-40 rounded-full shadow-2xl border-4 border-white object-cover bg-white"
+              src="https://i.ibb.co/3mVPmrm8/marta-perfil-fundo-transparente.png" 
+              alt="Marta Banner" 
+              className="w-full max-w-2xl shadow-2xl border border-rose-neutral rounded-3xl bg-white"
               referrerPolicy="no-referrer"
             />
           </motion.div>
@@ -260,27 +255,27 @@ export default function App() {
           <div className="print-page-1 bg-white shadow-2xl shadow-rose-gold/5 rounded-[2rem] overflow-hidden mb-12 border border-rose-neutral">
             <div className="p-12 md:p-16">
               {/* Header inside print */}
-              <div className="flex justify-between items-start border-b border-rose-neutral pb-12 mb-12">
-                <div className="flex items-center gap-6">
-                  <img 
-                    src="https://i.ibb.co/3mVPmrm8/marta-perfil-fundo-transparente.png" 
-                    alt="Logo" 
-                    className="h-20 w-auto object-contain"
-                    referrerPolicy="no-referrer"
-                  />
+              <div className="border-b border-rose-neutral pb-12 mb-12 flex flex-col items-center">
+                <img 
+                  src="https://i.ibb.co/3mVPmrm8/marta-perfil-fundo-transparente.png" 
+                  alt="Marta Banner" 
+                  className="w-full max-w-xl h-auto object-contain mb-8"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="flex justify-between w-full items-end">
                   <div>
-                    <h2 className="text-3xl font-serif italic text-brand-dark mb-2">Ficha de Atendimento</h2>
-                    <p className="text-rose-gold uppercase tracking-[0.2em] text-[10px] font-bold">Registro Terapêutico & Numerológico</p>
+                    <h2 className="text-2xl font-serif italic text-brand-dark">Ficha de Atendimento</h2>
+                    <p className="text-rose-gold uppercase tracking-[0.2em] text-[9px] font-bold">Registro Terapêutico & Numerológico</p>
                   </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-rose-gold text-[10px] uppercase font-bold mb-1">Data do Atendimento</p>
-                  <input
-                    type="date"
-                    value={formData.cliente.dataAtendimento}
-                    onChange={(e) => updateField('cliente', 'dataAtendimento', e.target.value)}
-                    className="text-right bg-transparent border-none focus:ring-0 text-brand-dark font-medium cursor-pointer focus:bg-rose-gold-pale rounded px-2 transition-colors border-b border-transparent focus:border-rose-gold/30"
-                  />
+                  <div className="text-right">
+                    <p className="text-rose-gold text-[10px] uppercase font-bold mb-1">Data do Atendimento</p>
+                    <input
+                      type="date"
+                      value={formData.cliente.dataAtendimento}
+                      onChange={(e) => updateField('cliente', 'dataAtendimento', e.target.value)}
+                      className="text-right bg-transparent border-none focus:ring-0 text-brand-dark font-medium cursor-pointer focus:bg-rose-gold-pale rounded px-2 transition-colors border-b border-transparent focus:border-rose-gold/30"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -384,26 +379,26 @@ export default function App() {
                   <h3 className="text-xl font-serif font-medium text-brand-dark">Planos de Consciência</h3>
                   <div className="flex-1 h-px bg-rose-neutral"></div>
                 </div>
-                <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-4">
-                  {formData.planosConsciencia.map((checked, idx) => (
-                    <label key={idx} className="flex flex-col items-center gap-3 cursor-pointer group">
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center text-lg font-serif transition-all duration-300 border-2 ${
-                          checked 
-                            ? 'bg-rose-gold border-rose-gold text-white shadow-md' 
-                            : 'bg-white border-rose-neutral text-brand-dark/30 group-hover:border-rose-gold-soft'
-                        }`}
-                      >
-                        {idx + 1}
-                        <input
-                          type="checkbox"
-                          className="hidden"
-                          checked={checked}
-                          onChange={() => togglePlano(idx)}
-                        />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[
+                    { label: 'Físico', field: 'fisico', numbers: '4, 5' },
+                    { label: 'Emocional', field: 'emocional', numbers: '2, 3, 6' },
+                    { label: 'Mental', field: 'mental', numbers: '1, 8' },
+                    { label: 'Intuitivo', field: 'intuitivo', numbers: '7, 9' }
+                  ].map((item) => (
+                    <div key={item.field} className="group flex flex-col gap-3 p-6 rounded-3xl border border-rose-neutral hover:border-rose-gold/20 transition-all duration-300 bg-rose-gold-pale/10">
+                      <div className="flex justify-between items-center">
+                        <label className="text-[11px] uppercase tracking-widest font-bold text-brand-dark">{item.label}</label>
+                        <span className="text-[10px] text-rose-gold font-bold bg-white px-2 py-0.5 rounded-full border border-rose-gold/10 shadow-sm">({item.numbers})</span>
                       </div>
-                      <span className="text-[9px] uppercase tracking-tighter font-bold text-brand-dark/40 group-hover:text-rose-gold transition-colors">Plano {idx + 1}</span>
-                    </label>
+                      <input
+                        type="text"
+                        value={(formData.planosConsciencia as any)[item.field]}
+                        onChange={(e) => updateField('planosConsciencia', item.field, e.target.value)}
+                        className="w-full bg-white border border-rose-neutral rounded-xl px-4 py-3 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/5 transition-all outline-none text-brand-dark font-medium text-center text-lg"
+                        placeholder="-"
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
