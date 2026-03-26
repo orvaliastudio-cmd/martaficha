@@ -50,6 +50,7 @@ interface FormData {
     p2: string;
     p3: string;
     p4: string;
+    notasCalculos: string;
   };
 }
 
@@ -71,7 +72,7 @@ const initialData: FormData = {
     esplenico: { ...initialChakra },
     basico: { ...initialChakra },
   },
-  pinaculos: { p1: '', p2: '', p3: '', p4: '' },
+  pinaculos: { p1: '', p2: '', p3: '', p4: '', notasCalculos: '' },
 };
 
 export default function App() {
@@ -482,6 +483,30 @@ export default function App() {
                 </div>
               </div>
               
+              <div className="mt-16 secao-form">
+                <div className="flex items-center gap-4 mb-6">
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark/60">Cálculos e Anotações dos Pináculos</h4>
+                  <div className="flex-1 h-px bg-rose-neutral/50"></div>
+                </div>
+                <div className="relative bg-white border border-rose-neutral rounded-3xl overflow-hidden shadow-inner">
+                  {/* Lined Paper Effect */}
+                  <div className="absolute inset-0 pointer-events-none" style={{ 
+                    backgroundImage: 'linear-gradient(transparent 31px, #f1e4e1 32px)',
+                    backgroundSize: '100% 32px',
+                    opacity: 0.5
+                  }}></div>
+                  <textarea
+                    value={formData.pinaculos.notasCalculos}
+                    onChange={(e) => updateField('pinaculos', 'notasCalculos', e.target.value)}
+                    placeholder="Espaço para cálculos e anotações detalhadas..."
+                    className="w-full min-h-[13cm] bg-transparent p-8 font-serif text-lg leading-[32px] text-brand-dark focus:ring-0 border-none relative z-10 resize-none pinaculos-notes"
+                  />
+                </div>
+                <p className="text-[10px] text-brand-dark/40 mt-4 text-center italic">
+                  Este espaço foi ampliado para permitir cálculos manuais e anotações detalhadas de cada ciclo.
+                </p>
+              </div>
+              
               <div className="mt-12 p-8 bg-rose-gold-pale/30 rounded-3xl border border-rose-neutral">
                 <p className="text-brand-dark/50 text-sm italic text-center">
                   "Os pináculos representam os ciclos de realização e as influências predominantes em cada fase da jornada."
@@ -655,11 +680,17 @@ export default function App() {
           }
           textarea {
             border: none !important;
-            background-image: linear-gradient(transparent, transparent 31px, #f3f4f6 31px) !important;
+            background-image: linear-gradient(transparent 31px, #f1e4e1 32px) !important;
+            background-size: 100% 32px !important;
             line-height: 32px !important;
             color: #444 !important;
             resize: none !important;
             overflow: hidden !important;
+            display: block !important;
+            width: 100% !important;
+          }
+          .pinaculos-notes {
+            min-height: 130mm !important;
           }
           input {
             border: none !important;
